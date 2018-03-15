@@ -18,6 +18,7 @@ def pc_draw(field):
             if field[number] == "x" or field[number] == "o":
                 # No need to execute: print("Position is already populated.")
                 continue
+            # Offensive and defensive strategy.
             elif "-oo" in field:
                 number = field.index("-oo")
                 break
