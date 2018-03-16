@@ -8,6 +8,7 @@ Repetion until used a free position.
 """
 
 from random import randrange
+from util import draw
 
 def pc_draw(field):
     symbol = 'o'
@@ -46,6 +47,6 @@ def pc_draw(field):
             else:
                 break
 
-    field = field[:number] + symbol + field[(number + 1):]
+    field = draw(field, number, symbol)
 
     return field
