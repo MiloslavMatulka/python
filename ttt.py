@@ -19,7 +19,10 @@ def evaluate(field):
 
 # For general info go to ttt_draw.py
 def draw(field, number, symbol):
-    field = field[:number] + symbol + field[(number + 1):]
+    if number > len(field):
+        raise ValueError("Number {} is out of range.".format(number))
+    else:
+        field = field[:number] + symbol + field[(number + 1):]
     return field
 
 
