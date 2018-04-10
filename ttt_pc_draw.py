@@ -11,13 +11,17 @@ from random import randrange
 from util import draw
 
 def pc_draw(field):
-    symbol = 'o'
-    size = len(field)
+    try:
+        symbol = 'o'
+        size = len(field)
 
-    while True:
+        while True:
             number = randrange(0, size)
-            if field[number] == "x" or field[number] == "o":
+
+            if "-" in field and field[number] == "x":
                 # No need to execute: print("Position is already populated.")
+                continue
+            elif "-" in field and field[number] == "o":
                 continue
             # Offensive and defensive strategy.
             elif "-oo" in field:
@@ -47,6 +51,12 @@ def pc_draw(field):
             else:
                 break
 
-    field = draw(field, number, symbol)
+        if "-" in field:
+            field = draw(field, number, symbol)
+        else:
+            print("Field is full.")
+
+    except ValueError:
+        print("There is no field.")
 
     return field
