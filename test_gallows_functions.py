@@ -11,7 +11,8 @@ def test_random_word_numbers():
     word = gallows_functions.random_word()
     assert (word == ("english", "language") or
             word == ("monday", "weekday") or
-            word == ("mother", "parent"))
+            word == ("mother", "parent") or
+            word == ("apple", "fruit"))
 
 
 # The example of a black box testing
@@ -23,6 +24,11 @@ def test_update_string_yes():
 def test_update_string_no():
     string = gallows_functions.update_string("______", 'a', "mother")
     assert string == "______"
+
+
+def test_update_string_same_letters():
+    string = gallows_functions.update_string("_____", 'p', "apple")
+    assert string == "_pp__"
 
 
 def test_counter_yes():
