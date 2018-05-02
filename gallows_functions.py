@@ -11,18 +11,23 @@ import random
 def random_word():
     words = {1 : ("english", "language"),
              2 : ("monday", "weekday"),
-             3 : ("mother", "parent")}
-    number = random.randrange(1, len(words) + 1)
+             3 : ("mother", "parent"),
+             4 : ("apple", "fruit")}
+    number = random.randrange(1, (len(words) + 1))
     word = words[number]
     return word
 
 
-# This function exchanges a "_" for an inserted letter
+# This function replaces a "_" for an inserted letter
 # if it is present in guessed word.
-def update_string(string, letter, guessed_word):
+# Considered more than one occurence of the letter in a word.
+def update_string(string, letter, guessed_word):        
     if letter in guessed_word:
-        letter_pos = guessed_word.index(letter)
-        string = string[:letter_pos] + letter + string[(letter_pos + 1):]
+        index_pos_move = 0
+        for instance in range(0, guessed_word.count(letter)):
+            letter_pos = guessed_word.index(letter, index_pos_move)
+            string = string[:letter_pos] + letter + string[(letter_pos + 1):]
+            index_pos_move = letter_pos + 1
     else:
         pass
     return string
