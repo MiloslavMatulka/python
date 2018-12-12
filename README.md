@@ -1,2 +1,2 @@
 # training
-Python
+Python training files
