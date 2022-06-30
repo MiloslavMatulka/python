@@ -1,2 +1,2 @@
 # python
-Python training files
+Python projects according to Pyladies
